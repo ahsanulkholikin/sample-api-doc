@@ -26,3 +26,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::post('/logout', App\Http\Controllers\Api\LogoutController::class)->name('logout');
+
+
+
+// Route::post('/post', function () {
+//     return 'User ';
+// });
+
+
+Route::middleware('auth:api')->group(function () {
+    // Route::post('/post', [App\Http\Controllers\PostController::class , 'store'])->name('post.store');
+
+    Route::resource('/post', App\Http\Controllers\PostController::class);
+});
