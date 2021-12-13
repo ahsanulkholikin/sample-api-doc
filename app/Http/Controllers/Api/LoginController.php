@@ -18,6 +18,8 @@ class LoginController extends Controller
      */
     public function __invoke(Request $request)
     {
+        return response()->json("asd");
+        die;
         //set validation
         $validator = Validator::make($request->all(), [
             'email'     => 'required',
