@@ -20,7 +20,7 @@ class LoginController extends Controller
     {
         // return response()->json("asd");
         // die;
-
+        
         //set validation
         $validator = Validator::make($request->all(), [
             'email'     => 'required',
@@ -34,8 +34,6 @@ class LoginController extends Controller
 
         //get credentials from request
         $credentials = $request->only('email', 'password');
-        return response()->json($credentials);
-        die;
 
         //if auth failed
         if(!$token = JWTAuth::attempt($credentials)) {
